@@ -23,4 +23,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: zip
       run: zip -r bundle.zip . 
-     
+    - uses: actions/upload-artifact@v2
+      with:
+        name: laravel-artifact
+        path: bundle.zip     
