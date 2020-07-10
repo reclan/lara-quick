@@ -8,13 +8,14 @@ on:
 
 jobs:
   laravel-tests:
+    defaults:
+      run:
+        working-directory: src
 
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
-    - name: change Directory
-      run: cd src
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
