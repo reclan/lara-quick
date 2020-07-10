@@ -45,6 +45,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
 
+    - name: read env
+      id: dotenv
+      uses: ./.github/actions/dotenv-action
+
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
@@ -53,7 +57,7 @@ jobs:
       uses: shitiomatic/str-replace@master
       with:
         find: "##version##"
-        replace: "0.0.${{ github.run_number }}.${{ github.run_id }}"
+        replace: "${{ steps.dotenv.outputs.masterversion }}.${{ github.run_number }}.${{ github.run_id }}"
         include: "index.html|app.blade.php"
       
     - name: Copy .env
@@ -77,7 +81,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: laravel-mysql-test
-        IMAGE_TAG: 0.0.${{ github.run_number }}.${{ github.run_id }}
+        IMAGE_TAG: ${{ steps.dotenv.outputs.masterversion }}.${{ github.run_number }}.${{ github.run_id }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
