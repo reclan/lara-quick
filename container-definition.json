@@ -2,23 +2,14 @@
         {
             "name": "laravel-container",
             "image": "465337219909.dkr.ecr.us-east-2.amazonaws.com/laravel-mysql-test:0.0.7.164455257",
-            "memoryReservation": "256",
-            "resourceRequirements": null,
+            "memoryReservation": 256,
             "essential": true,
             "portMappings": [
                 {
-                    "containerPort": "80",
+                    "containerPort": 80,
                     "protocol": "tcp"
                 }
             ],
-            "environment": null,
-            "secrets": null,
-            "mountPoints": null,
-            "volumesFrom": null,
-            "hostname": null,
-            "user": null,
-            "workingDirectory": null,
-            "extraHosts": null,
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -26,12 +17,6 @@
                     "awslogs-region": "us-east-2",
                     "awslogs-stream-prefix": "ecs"
                 }
-            },
-            "ulimits": null,
-            "dockerLabels": null,
-            "dependsOn": null,
-            "repositoryCredentials": {
-                "credentialsParameter": ""
             }
         }
 ]
