@@ -47,7 +47,7 @@ jobs:
 
     - name: read env
       id: dotenv
-      uses: ./.github/actions/dotenv-action
+      uses: falti/dotenv-action@latest
 
     - name: Login to Amazon ECR
       id: login-ecr
