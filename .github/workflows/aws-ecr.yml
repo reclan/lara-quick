@@ -50,9 +50,9 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Set version
-      uses: jacobtomlinson/gha-find-replace@master
+      uses: shitiomatic/str-replace@master
       with:
-        find: "[[version]]"
+        find: "##version##"
         replace: "0.0.${{ github.run_number }}.${{ github.run_id }}"
         include: "index.html|app.blade.php"
       

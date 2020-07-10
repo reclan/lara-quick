@@ -32,8 +32,8 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Task List
-                </a> v.[[version]]
+                    Task List v.##version##
+                </a> 
             </div>
 
         </div>
