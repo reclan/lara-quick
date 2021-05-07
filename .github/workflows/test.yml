@@ -25,7 +25,7 @@ jobs:
   job2: 
     name: conditional
     runs-on: ubuntu-latest
-    need: prerequisites
+    needs: prerequisites
 
     if: env.var1 == "12345"
 
