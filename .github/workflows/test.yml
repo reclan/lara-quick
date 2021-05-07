@@ -23,7 +23,7 @@ jobs:
   job2: 
     name: conditional
     runs-on: ubuntu-latest
-    if: jobs.prerequisites.steps.setvar.outputs.var1 == "12345"
+    if: steps.setvar.outputs.var1 == "12345"
 
     steps:
     - name: step4
