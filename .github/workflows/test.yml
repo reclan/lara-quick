@@ -19,7 +19,8 @@ jobs:
     - name: setvar
       id: setvar
       env: 
-        var1: 12345"
+        var1: 12345
+      run: echo "setvar step"
 
   job2: 
     name: conditional
