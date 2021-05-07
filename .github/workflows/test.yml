@@ -31,8 +31,9 @@ jobs:
 
     steps:
     - name: step4
-      run: echo "step4"
-      run: echo needs.prerequisites.env.var1
+      run: | 
+        echo "step4"
+        echo needs.prerequisites.env.var1
 
     - name: step5
       run: echo "step5"      
