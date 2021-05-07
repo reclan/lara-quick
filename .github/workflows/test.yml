@@ -1,0 +1,31 @@
+on:
+  push:
+    branches: [ master ]
+
+name: Conditional test
+
+jobs:
+  prerequisites:
+    name: pre
+    
+    steps:
+    - name: step1
+      run: echo "step1"
+
+    - name: step2
+      run: echo "step2"
+
+    - name: setvar
+      id: setvar
+      run: echo "::set-output name=var1::12345"
+
+  job2: 
+    name: conditional
+    if: jobs.prerequisites.steps.setvar.outputs.var1 == "12345"
+
+    steps:
+    - name: step4
+      run: echo "step4"
+
+    - name: step5
+      run: echo "step5"      
