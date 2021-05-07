@@ -25,7 +25,9 @@ jobs:
   job2: 
     name: conditional
     runs-on: ubuntu-latest
-    if: ${{ var1 == "12345" }}
+    need: prerequisites
+
+    if: env.var1 == "12345"
 
     steps:
     - name: step4
