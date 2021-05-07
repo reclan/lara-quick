@@ -18,12 +18,13 @@ jobs:
 
     - name: setvar
       id: setvar
-      run: echo "::set-output name=var1::12345"
+      env: 
+        var1: 12345"
 
   job2: 
     name: conditional
     runs-on: ubuntu-latest
-    if: steps.setvar.outputs.var1 == "12345"
+    if: env.var1 == "12345"
 
     steps:
     - name: step4
