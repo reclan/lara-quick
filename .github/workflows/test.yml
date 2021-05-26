@@ -55,4 +55,4 @@ jobs:
 
     steps:
     - name: warning
-      run: echo "job2 didn't run because wrong condition"
+      run: echo "job2 - didn't run because wrong condition"
